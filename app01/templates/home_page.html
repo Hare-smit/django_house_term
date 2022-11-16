@@ -1,0 +1,110 @@
+{% extends "test.html" %}
+{% load static %}
+{% block template %}
+    <header></header>
+    <section class="features-boxed">
+        <section class="article-list">
+            <div class="container">
+                <div class="intro">
+                    <h2 class="text-center">全面分析 选购更清晰</h2>
+                    <p class="text-center">全局分析系统</p>
+                </div>
+                <div class="row articles">
+                    <div class="col-md-4 col-sm-6 item"><a href="#"><img class="img-responsive" src="{% static "assets/img/desk.jpg"%}"></a>
+                        <h3 class="name">专业的分析平台</h3>
+                        <p class="description">建立全面的分析架构.</p>
+                        <p class="description">只需选择地区，即可了解当前区域的房源</p><a class="action" href="#"><i class="glyphicon glyphicon-circle-arrow-right"></i></a>
+                    </div>
+                    <div class="col-md-4 col-sm-6 item"><a href="#"><img class="img-responsive" src="{% static "assets/img/building.jpg"%}"></a>
+                        <h3 class="name">精选地段</h3>
+                        <p class="description">根据你的喜好</p>
+                        <p class="description">为您推荐最优方位</p><a class="action" href="#"><i class="glyphicon glyphicon-circle-arrow-right"></i></a>
+                    </div>
+                    <div class="col-md-4 col-sm-6 item"><a href="#"><img class="img-responsive" src="{% static "assets/img/loft.jpg"%}"></a>
+                        <h3 class="name">精选房源</h3>
+                        <p class="description">精析房间来源</p>
+                        <p class="description">将房源数据毫无保留的呈现</p>
+                        <p class="description"></p><a class="action" href="#"><i class="glyphicon glyphicon-circle-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div class="container">
+            <div class="intro">
+                <h2 class="text-center">更多方便</h2>
+                <p class="text-center">开发中。。。</p>
+            </div>
+            <div class="row features">
+                <div class="col-md-4 col-sm-6 item">
+                    <div class="box"><i class="glyphicon glyphicon-map-marker icon"></i>
+                        <h3 class="name">Works everywhere</h3>
+                        <p class="description">Aenean tortor est, vulputate quis leo in, vehicula rhoncus lacus. Praesent aliquam in tellus eu.</p><a class="learn-more" href="#">Learn more »</a>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6 item">
+                    <div class="box"><i class="glyphicon glyphicon-home icon"></i>
+                        <h3 class="name">Always available</h3>
+                        <p class="description">Aenean tortor est, vulputate quis leo in, vehicula rhoncus lacus. Praesent aliquam in tellus eu.</p><a class="learn-more" href="#">Learn more »</a>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6 item">
+                    <div class="box"><i class="glyphicon glyphicon-road icon"></i>
+                        <h3 class="name">Customizable </h3>
+                        <p class="description">Aenean tortor est, vulputate quis leo in, vehicula rhoncus lacus. Praesent aliquam in tellus eu.</p><a class="learn-more" href="#">Learn more »</a>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6 item">
+                    <div class="box"><i class="glyphicon glyphicon-leaf icon"></i>
+                        <h3 class="name">Organic </h3>
+                        <p class="description">Aenean tortor est, vulputate quis leo in, vehicula rhoncus lacus. Praesent aliquam in tellus eu.</p><a class="learn-more" href="#">Learn more »</a>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6 item">
+                    <div class="box"><i class="glyphicon glyphicon-stats icon"></i>
+                        <h3 class="name">Fast </h3>
+                        <p class="description">Aenean tortor est, vulputate quis leo in, vehicula rhoncus lacus. Praesent aliquam in tellus eu.</p><a class="learn-more" href="#">Learn more »</a>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6 item">
+                    <div class="box"><i class="glyphicon glyphicon-phone icon"></i>
+                        <h3 class="name">Mobile-first</h3>
+                        <p class="description">Aenean tortor est, vulputate quis leo in, vehicula rhoncus lacus. Praesent aliquam in tellus eu.</p><a class="learn-more" href="#">Learn more »</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer class="footer-clean">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 col-sm-4 item">
+                    <h3>Services</h3>
+                    <ul>
+                        <li><a href="#">Web design</a></li>
+                        <li><a href="#">Development</a></li>
+                        <li></li>
+                    </ul>
+                </div>
+                <div class="col-md-3 col-sm-4 item">
+                    <h3>About</h3>
+                    <ul>
+                        <li><a href="#">Company</a></li>
+                        <li><a href="#">Team</a></li>
+                        <li></li>
+                    </ul>
+                </div>
+                <div class="col-md-3 col-sm-4 item">
+                    <h3>Careers</h3>
+                    <ul>
+                        <li><a href="#">Job openings</a></li>
+                        <li><a href="#">Employee success</a></li>
+                        <li></li>
+                    </ul>
+                </div>
+                <div class="col-md-3 item social"><a href="#"><i class="icon ion-social-facebook"></i></a><a href="#"><i class="icon ion-social-twitter"></i></a><a href="#"><i class="icon ion-social-snapchat"></i></a><a href="#"><i class="icon ion-social-instagram"></i></a>
+                    <p class="copyright">Company Name © 2022</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+{% endblock %}

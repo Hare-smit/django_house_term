@@ -1,0 +1,60 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Title</title>
+    <link rel="stylesheet" href="{% static "assets/bootstrap/css/bootstrap.min.css"%}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700">
+    <link rel="stylesheet" href="{% static "assets/fonts/ionicons.min.css"%}">
+    <link rel="stylesheet" href="{% static "assets/css/user.css"%}">
+    <link rel="stylesheet" href="{% static "assets/css/Article-List.css"%}">
+    <link rel="stylesheet" href="{% static "assets/css/Features-Boxed.css"%}">
+    <link rel="stylesheet" href="{% static "assets/css/Footer-Clean.css"%}">
+    <link rel="stylesheet" href="{% static "assets/css/swiper.min.css"%}">
+    <link rel="stylesheet" href="{% static "assets/css/Navigation-Clean.css"%}">
+    <link rel="stylesheet" href="{% static "assets/css/Navigation-with-Button.css"%}">
+    <link rel="stylesheet" href="{% static "assets/css/Navigation-with-Search.css"%}">
+    <link rel="stylesheet" href="{% static "assets/css/sidebar-1.css"%}">
+    <link rel="stylesheet" href="{% static "assets/css/sidebar.css"%}">
+    <link rel="stylesheet" href="{% static "assets/css/Simple-Slider.css"%}">
+{% block css %}{% endblock %}
+</head>
+
+<body>
+    <nav class="navbar navbar-default navigation-clean-button">
+            <div class="container">
+                <div class="navbar-header"><a class="navbar-brand text-uppercase" href="{% url "home" %}" style="color: rgb(10,9,9);font-size: 29px;padding-left: 21px;padding-top: 29.5px;">链家二手房分析平台</a><button data-toggle="collapse" class="navbar-toggle collapsed" data-target="#navcol-1"><span class="sr-only"></span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button></div>
+                <div class="collapse navbar-collapse" id="navcol-1" style="padding-right: 15px;">
+                    <ul class="nav navbar-nav">
+                        <li><a href="{% url "show" %}">房源推荐</a></li>
+                        <li><a href="{% url "list" %}">全局分析系统</a></li>
+                        <li class="dropdown"><a class="dropdown-toggle" aria-expanded="false" data-toggle="dropdown" href="#">更多&nbsp; &nbsp;&nbsp;</a>
+                            <ul class="dropdown-menu">
+                                <li><a href="{% url "reset" %}">更改密码</a></li>
+                                <li><a href="{% url "update_climb" %}">更新房源</a></li>
+                                <li><a href="{% url "pl_edit" %}">修改地区</a></li>
+                                <li><a href="{% url "logout" %}">注销/退出</a></li>
+
+                            </ul>
+                        </li>
+                    </ul>
+                    <p class="navbar-text navbar-right actions">  {% if request.session.info.plce %} <a class="login" href="{% url "pl_edit" %}" style="padding-top: 9px;">{{ pl }} {% else %}<a class="login" href="{% url "admin_add" %}" style="padding-top: 9px;"> 创建 {% endif %}</a>
+                        {% if  request.session.info.name %} <a class="btn btn-default action-button" role="button" href="#">{{ request.session.info.name }} {% else %}<a class="btn btn-default action-button" role="button" href="{% url "login" %}"> 登录 {% endif %}</a></p>
+
+                </div>
+            <hr>
+
+{% block template %}{% endblock %}
+
+    <script src="{% static "assets/js/jquery.min.js"%}"></script>
+    <script src="{% static "assets/bootstrap/js/bootstrap.min.js"%}"></script>
+    <script src="{% static "assets/js/swiper.jquery.min.js"%}"></script>
+    <script src="{% static "assets/js/Simple-Slider.js"%}"></script>
+
+    {% block js %}{% endblock %}
+
+</body>
+
+</html>

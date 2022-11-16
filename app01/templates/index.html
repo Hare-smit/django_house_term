@@ -1,0 +1,127 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{{ title }}</title>
+    <script type="text/javascript" src="{% static 'js/rem.js'%}"></script>
+    <link rel="stylesheet" href="{% static "css/style.css" %}">
+</head>
+<body style="visibility: hidden;overflow: hidden;">
+
+
+    <div class="container-flex" tabindex="0" hidefocus="true">
+        <div class="box-left">
+            <div class="left-top">
+                <div class="current-num">
+                    <div>当前总二手房数据</div>
+                    <p>{{ much }}</p>
+                </div>
+            </div>
+            <div class="left-center">
+                <div class="title-box">
+                    <h6>户型数据情况分布</h6>
+                </div>
+                <div>
+                    <iframe scrolling="no" id="main" name="main" frameborder="0" src="{% url "hx" %}"
+                        style="min-height:300px;width:450px;height:300px;"></iframe>
+                </div>
+            </div>
+            <div class="left-bottom" class="select">
+                <div class="title-box">
+                    <h6>面积散点图</h6>
+                </div>
+                <div>
+                    <iframe scrolling="no" id="main" name="main" frameborder="0" src="{% url "sdt" %}"
+                        style="min-height:300px;width:100%;height:300px;"></iframe>
+                </div>
+            </div>
+        </div>
+        <div class="box-center">
+            <div class="center-top">
+                <h1>{{ title }}</h1>
+            </div>
+            <div class="center-center">
+                <div class="weather-box">
+                    <div class="data">
+                        <p class="time" id="time">00:00:00</p>
+                        <p id="date"></p>
+                    </div>
+                    <div class="weather">
+                        <img id="weatherImg" src={{ img }} alt="">
+                        <div id="weather">
+                            <p class="active">{{ weather }}</p>
+                            <p>{{ temp }}℃</p>
+                            <p>{{ place }}市</p>
+                        </div>
+                    </div>
+                </div>
+                <img src="{% static 'images/line_bg.png'%}" alt="">
+                <div class="select-box" style="height: 0.3rem;">
+
+                    <div data-type="2">
+                        <div class="select" tabindex="0" hidefocus="true">
+                            <p style="color:#FFFF00;font-weight:bold;">{{ plce }}：{{ much }}</p>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="center-bottom">
+                <div class="chart-box">
+                    <!-- <div id="china_map" style="width:100%;height:95%;"></div> -->
+                    <iframe scrolling="no" id="main" name="main" frameborder="0" src="{% url "dt" %}"
+                        style="min-height:600px;width:100%;height:600px;"></iframe>
+                </div>
+
+            </div>
+
+        </div>
+        <div class="box-right">
+            <div class="right-top">
+                <div class="title-box">
+                    <h6 id="barTitle">二手房朝向数量占比</h6>
+                </div>
+                <div class="chart-box">
+                    <iframe scrolling="no" id="main" name="main" frameborder="0" src="{% url "cx" %}"
+                        style="min-height:300px;width:100%;height:300px;"></iframe>
+                </div>
+
+            </div>
+
+            <div class="right-bottom">
+                <div class="title-box">
+                    <p id="switchBtn"><span class="active" data-dataType="income">房屋套房与价格的走向</span></p>
+
+                </div>
+                <iframe scrolling="no" id="main" name="main" frameborder="0" src="{% url "top10" %}"
+                    style="min-height:300px;width:100%;height:300px;"></iframe>
+
+            </div>
+        </div>
+    </div>
+
+
+</body>
+<script type='text/javascript' src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
+<script type='text/javascript' src="{% static 'js/layer/layer.min.js' %}"></script>
+<script type='text/javascript' src="{% static 'js/layer/laydate/laydate.js' %}"></script>
+<script type='text/javascript' src="{% static 'js/echarts.min.js' %}"></script>
+<script type='text/javascript' src="{% static 'js/china.js' %}"></script>
+<script type='text/javascript' src="{% static 'js/infographic.js'%}"></script>
+<script type='text/javascript' src="{% static 'js/macarons.js'%}"></script>
+<script type='text/javascript' src="{% static 'js/shine.js'%}"></script>
+<script type='text/javascript' src="{% static 'js/base.js'%}"></script>
+
+<script type='text/javascript'>
+    $('document').ready(function () {
+        $('body').css('visibility', 'visible');
+        var localData = [$('#teacher').val(), $('#start').val() + '/' + $('#end').val(), $('#leader').val()]
+        localStorage.setItem('data', localData);
+    })
+</script>
+
+</html>

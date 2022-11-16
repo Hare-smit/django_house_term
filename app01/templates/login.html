@@ -1,0 +1,79 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="{% static 'plugins/bootstrap-3.4.1/css/bootstrap.min.css' %}">
+
+    <style>
+        .account {
+            width: 400px;
+            border: 1px solid #dddddd;
+            border-radius: 5px;
+            box-shadow: 5px 5px 20px #aaa;
+
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 100px;
+            padding: 20px 40px;
+        }
+
+        .account h2 {
+            margin-top: 10px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+<div class="account">
+    <h2>用户登录</h2>
+    <form id= "form" method="post" novalidate>
+        {% csrf_token %}
+        <div class="form-group">
+            <label>用户名</label>
+            {{ form.username }}
+            <span style="color: red;">{{ form.username.errors.0 }}</span>
+        </div>
+        <div class="form-group">
+            <label>密码</label>
+            <input class = "form-control" id="pwd" type="password" name="password" placeholder="请输入密码" required>
+            <input type="hidden" value="{{ pub_key }}" id="pubkey">
+            <span style="color: red;">{{ form.password.errors.0 }}</span>
+        </div>
+        <div class="form-group">
+            <label for="id_code">图片验证码</label>
+            <div class="row">
+                <div class="col-xs-7">
+                    {{ form.code }}
+                    <span style="color: red;">{{ form.code.errors.0 }}</span>
+                </div>
+                <div class="col-xs-5">
+                    <img id="image_code" src="{% url "image" %}" style="width: 125px;">
+                </div>
+            </div>
+        </div>
+        <input type="submit" value="登 录" class="btn btn-primary" onclick="dologin();return false;">
+    </form>
+</div>
+
+<script type="text/javascript" src="{% static 'js/jquery-3.3.1.min.js'%}"></script>
+<script type="text/javascript" src="{% static 'js/jsencrypt.min.js'%}"></script>
+
+<script>
+function dologin() {
+        //公钥加密
+        var pwd =$('#pwd').val(); //明文密码
+        var pubkey = $('#pubkey').val(); //公钥，pkcs#1格式，字符串
+        var jsencrypt = new JSEncrypt(); //加密对象
+        jsencrypt.setPublicKey(pubkey); // 设置密钥
+        var en_pwd = jsencrypt.encrypt(pwd); //加密
+        $('#pwd').val(en_pwd); //返回给密码输入input
+        $('#form').submit();//post提交
+    }
+</script>
+
+
+</body>
+</html>
